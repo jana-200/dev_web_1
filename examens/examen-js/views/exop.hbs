@@ -1,0 +1,29 @@
+<section> 
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nom Exoplanète</th>
+            <th>hClass</th>
+            <th>Année de découverte</th>
+            <th>Actions</th>
+        </tr>
+    {{#each exoplanetsTable}}
+        <tr>
+            <td>{{this.exoplanet_id}} </td>
+            <td>{{this.unique_name}} </td>
+            <td>{{this.hclass}} </td>
+            <td>{{this.discovery_year}} </td>
+            <td>
+                <form method="POST" action="/exoplanets/delete">
+                    <input type="hidden" name="id" value="{{this.exoplanet_id}}">
+                    <input type="submit" value="Supprimer">
+                </form>
+                <form method="POST" action="/exoplanets/update/index">
+                    <input type="hidden" name="id" value="{{this.exoplanet_id}}">
+                    <input type="submit" value="Mettre à jour">
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+</section>

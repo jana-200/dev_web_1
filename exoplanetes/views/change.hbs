@@ -1,0 +1,23 @@
+<section> 
+    <h2>Mise A Jour D'Une Exoplanète </h2>
+
+<form id="form" action = "/exoplanetes/change" method = "post">
+<input type="hidden" id="id" name="id" value={{this.id}}>
+<p>ID de L'exoplanète : {{id}} </p>
+<p>Nom de l'exoplanète : <input type="text" id="name" name="name" required></p>
+<p>
+    Classe de l'exoplanète :
+    <select name="classe" id="hclasse">
+        <option value="Mésoplanètes">Mésoplanètes</option>
+        <option value="balblablou">balblablou</option>
+        <option value="balblablou">balblablou</option>
+    </select>
+</p>
+<p>Année de découverte : <input type="number" name="year" min="1980" /></p>
+
+    <p class="form-example">
+        <input type="submit" value="  Mettre à jour  " />
+    </p>
+</form>
+
+</section>

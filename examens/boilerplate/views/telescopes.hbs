@@ -1,0 +1,31 @@
+<section>
+    <h1> Telescopes </h1>
+    <table>
+        <tr>
+            <th>Id telescope</th>
+            <th>Nom Telescope</th>
+            <th>Agense spatiale</th>
+            <th>Drapeau</th>
+            
+        </tr>
+        {{#each telescopesTable}}
+        <tr>
+            {{#if (eq this.space_agency "NASA")}}
+            
+            <td class="red">{{this.telescope_id}} </td>
+            <td class="red">{{this.telescope_name}} </td>
+            <td class="red">{{this.space_agency}} </td>
+            <td class="red"><img src="images/american_flag.png" alt="america"></td>
+            {{else}}
+            
+            <td class="blue">{{this.telescope_id}} </td>
+            <td class="blue">{{this.telescope_name}} </td>
+            <td class="blue">{{this.space_agency}} </td>
+            <td class="blue"><img src="images/european_flag.png" alt="europe"></td>
+
+            {{/if}}
+
+        </tr>
+        {{/each}}
+    </table>
+</section>

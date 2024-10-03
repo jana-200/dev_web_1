@@ -1,0 +1,97 @@
+<section> 
+  
+  <h2> Liste des Exoplanètes </h2>
+  <h3>Filtre : </h3>
+    <section class="filter">
+    <form method="get" action="/exoplanetes/filter">
+      <select name="classe">
+        <option value="Mésoplanètes">Mésoplanètes</option>
+        <option value="Thermoplanète">Thermoplanète</option>
+        <option value="hyperThermoplanète">hyperThermoplanète</option>
+        <option value="hypoThermoplanète">hypoThermoplanète</option>       
+      </select>
+      <input type="submit" name="filter" value="hclass">
+    </form>
+    <form method="get" action="/exoplanetes/filter">
+      <input type="number" min="1990" max="2024" value="2000" name="year" />
+      <input type="submit" name="filter" value="année">
+    </form>
+    </section>
+
+<table>
+    <tr>
+      <th scope="col">Identifiant</th>
+      <th scope="col">Image</th>
+      <th scope="col">Nom</th>
+      <th scope="col">hClasse</th>
+      <th scope="col">Année de découverte</th>
+      {{#if session.connected}}
+            <th>Actions</th>
+      {{/if}}
+    </tr>
+  <tbody>
+    {{#each liste2}}
+    <tr>
+        <td> {{this.id}}</td>
+        {{#if this.image}}
+          <td><img src={{this.image}} alt="illustration" class="img2"></td>
+          {{else}}
+            <td><img src="/images/blabla.png" alt="no planet" class="img2"></td>
+        {{/if}}
+        <td> <a href="/exoplanetes/details?id={{this.id}}" > {{this.name}} </a></td>
+        <td> {{this.classe}}</td> 
+        <td> {{this.year}}</td>
+        {{#if ../session.connected}}
+        <td>
+          <form id="form" action = "/exoplanetes/id" method = "post">
+            <div class="form-example">
+                <input type="hidden" id="id" name="id" value={{this.id}}>
+                <input type="submit" value="  Mettre à jour  " />
+            </div>
+          </form>
+        </td>
+        <td>
+          <form id="form" action = "/exoplanetes/supp" method = "post">
+            <div class="form-example">
+                <input type="hidden" id="id" name="id" value={{this.id}}>
+                <input type="submit" value="  supprimer " />
+            </div>
+          </form>
+        </td>
+        {{/if}}
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+
+<h2>Ajouter une exoplanète </h2>
+<form id="form" action = "/exoplanetes/add" method = "post" enctype="multipart/form-data">
+    Nom de l'exoplanète : <input type="text" id="name" name="name" required><br><br>
+    Classe de l'exoplanète : 
+    <select name="classe" id="hclasse">
+        <option value="Mésoplanètes">Mésoplanètes</option>
+        <option value="Thermoplanète">Thermoplanète</option>
+        <option value="hyperThermoplanète">hyperThermoplanète</option>
+        <option value="hypoThermoplanète">hypoThermoplanète</option>
+    </select><br><br>
+    Année de découverte : <input type="number" name="date" min="1980" /><br>
+    Fichier image : <input type="file" name="image">
+    <div class="form-example">
+        <input type="submit" value="envoyer" />
+    </div>
+</form>
+
+<h2> Recherche d'une exoplanète </h2><br>
+
+<form id="form" action = "/exoplanetes/search" method = "get">
+  <input type="text" id="name" name="name" required>
+  <input type="submit" value="envoyer"/>
+</form>
+<p>{{phrase}}</p>
+
+{{#if errors}}
+  <p class="error-message"> {{errors}}</p>
+{{/if}}
+
+</section>

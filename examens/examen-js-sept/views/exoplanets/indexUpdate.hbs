@@ -1,0 +1,35 @@
+<section>
+    <h1>Mise à jour Exoplanète</h1>
+
+    <form method="post" action="/exoplanets/update">
+        <div>
+            <label>Nom de l'exoplanète découverte : </label>
+            <input type="text" name="uniqueNameExoplanet" value="{{exoplanet.unique_name}}" />
+        </div>
+        <div>
+            <label>Classe Habitable de l'exoplanète : </label>
+              <select name="hClassExoplanet">
+                <option value="Mésoplanète" {{#if (eq exoplanet.hclass "Mésoplanète" ) }} selected {{/if}}> Mésoplanète
+                </option>
+                <option value="Psychroplanète" {{#if (eq exoplanet.hclass "Psychroplanète" ) }} selected {{/if}}>
+                    Psychroplanète</option>
+                <option value="Thermoplanète" {{#if (eq exoplanet.hclass "Thermoplanète" ) }} selected {{/if}}>
+                    Thermoplanète</option>
+                <option value="Hypopsychroplanète" {{#if (eq exoplanet.hclass "Hypopsychroplanète" ) }} selected
+                    {{/if}}>
+                    Hypopsychroplanète</option>
+                <option value="Non Habitable" {{#if (eq exoplanet.hclass "Non Habitable" ) }} selected {{/if}}>Non
+                    Habitable</option>
+            </select>
+        </div>
+        <div>
+            <label> Année de découverte </label>
+            <input type="number" min="2000" max="2099" step="1" name="discoveryYearExoplanet"
+                value="{{exoplanet.discovery_year}}" />
+        </div>
+        <div>
+            <input type="hidden" value="{{exoplanet.exoplanet_id}}" name="id">
+            <input type="submit" value="Mettre à jour">
+        </div>
+    </form>
+</section>

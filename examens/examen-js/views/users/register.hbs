@@ -1,0 +1,30 @@
+<section>
+    <h1>Inscription Membre</h1>
+
+    <form method="post" action="/users/add">
+        <div>
+            <label>Nom membre : </label>
+            <input type="text" name="memberName" value="" placeholder="Exemple : Choquet" />
+        </div>
+        <div>
+            <label>Prénom membre : </label>
+            <input type="text" name="memberFirstname" value="" placeholder="Exemple : olivier" />
+        </div>
+        <div>
+            <label>Email membre : </label>
+            <input type="email" name="memberEmail" value="" placeholder="Exemple : oli@vinci.be" />
+        </div>
+        <div>
+            <label>Mot de passe membre : </label>
+            <input type="password" name="memberPassword" value="" />
+        </div>
+        <div>
+            <label>Confirmation mot de passe membre : </label>
+            <input type="password" name="memberPasswordConfirmation" value="" />
+        </div>
+        <div>
+            <input type="submit" value="M'enregistrer">
+        </div>
+    </form>
+    {{errors}}
+</section>

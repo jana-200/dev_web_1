@@ -1,0 +1,22 @@
+<section> 
+<h2> Liste des téléscopes </h2>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Pays</th>
+      <th scope="col">Diamètre</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each liste}}
+    <tr>
+        <td> {{this.name}}</td>
+        <td> {{this.pays}}</td> 
+        <td> {{this.diam}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+<p>{{error}}</p>
+</section>

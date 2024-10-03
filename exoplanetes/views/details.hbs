@@ -1,0 +1,31 @@
+<section> 
+    <h2>Détails d'une exoplanète </h2><br>
+
+<table>
+    {{#each liste1}}
+    <thead>
+        <tr>
+        <th scope="col">Identifiant</th>
+        <th scope="col">Nom</th>
+        <th scope="col">hClasse</th>
+        <th scope="col">Année de découverte</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> {{this.id}}</td>
+            <td> {{this.name}}</td>
+            <td> {{this.classe}}</td> 
+            <td> {{this.year}}</td>
+        </tr>
+    </tbody>
+    {{/each}}
+</table>
+<div id="po"> 
+    {{po}}
+</div>
+<div id="no">
+    {{no}}
+</div>
+
+</section>

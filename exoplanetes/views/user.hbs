@@ -1,0 +1,20 @@
+<section>
+
+<h1> Connectez vous ! </h1>
+
+<form id="form" action = "/users/login" method = "post">
+    User Name : <input type="name" id="name" name="name" ><br>
+    password : <input type="password" id="password" name="password" required><br>
+
+    <div class="form-example">
+        <input type="submit" value="se connecter" />
+    </div>
+</form>
+
+</section>
+
+{{#if session.errors}}
+<section>
+    <p class="error-message"> {{session.errors}} </p>
+</section>
+{{/if}}

@@ -1,0 +1,24 @@
+<section>
+<h1> Enregistrez vous ! </h1>
+
+<form id="form" action = "/users/add" method = "post">
+    Name : <input type="text" id="name" name="name" ><br>
+    Prénom : <input type="text" id="prenom" name="prenom" ><br>
+    Email : <input type="text" id="email" name="email" ><br>
+    Mot de passe : <input type="password" id="password" name="password" required><br>
+    Confirmation mot de passe : <input type="password" id="conf" name="conf" required><br>
+
+    <div class="form-example">
+        <input type="submit" value="Envoyer" />
+    </div>
+  
+</form>
+{{#if yes}}
+    <h3>ERREURS :</h3>
+{{/if}}
+
+{{#each errors}}
+    <li class="error-message">{{this}}</li>
+{{/each}}
+
+</section>
